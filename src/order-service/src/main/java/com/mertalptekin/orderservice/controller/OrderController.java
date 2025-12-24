@@ -18,6 +18,7 @@ public class OrderController {
     public OrderController(ProductClient productClient){
         this.productClient = productClient;
     }
+    // api/v1/orders/123/orderDetails
     @GetMapping("{orderCode}/orderDetails")
     public ResponseEntity<OrderedProductDetailResponse> getOrderedProductDetails(String orderCode){
         String[] productIds = new String[2];
