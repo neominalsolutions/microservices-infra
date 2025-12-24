@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: gateway
+
+
+  cloud:
+    gateway:
+      server:
+        webmvc:
+          routes:
+            - id: orderClient
+              uri: lb://order-service
+              predicates:
+                - Path=/order-service/api/v1/orders/**
+              filters:
+                - StripPrefix=1
+
+            - id: productClient
+              uri: lb://product-service
+              predicates:
+                - Path=/product-service/api/v1/products/**
+              filters:
+                - StripPrefix=1
+
+server:
+  port: 8083
+
+
+
+
