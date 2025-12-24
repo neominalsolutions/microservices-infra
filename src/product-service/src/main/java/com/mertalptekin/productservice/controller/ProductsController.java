@@ -30,11 +30,15 @@ public class ProductsController {
 
     // api/v1/products/details
     @PostMapping("details")
-    public ResponseEntity<OrderedProductDetailResponse> productDetailRequest(@RequestBody OrderedProductDetailRequest request){
+    public ResponseEntity<OrderedProductDetailResponse> productDetailRequest(@RequestBody OrderedProductDetailRequest request) throws InterruptedException {
 
 
         if(request.ProductIds().length == 2){
             throw  new RuntimeException("Sunucuda bir hata meydana geldi");
+        }
+
+        if(request.ProductIds().length == 3){
+            Thread.sleep(3000);
         }
 
         // kendi veri tabanında requestProductIds göre sorgulanıp çekildi
