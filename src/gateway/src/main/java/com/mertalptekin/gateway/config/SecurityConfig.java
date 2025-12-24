@@ -54,6 +54,7 @@ public class SecurityConfig {
     public SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) {
 
         http.authorizeExchange(exchanges -> exchanges
+                        .pathMatchers("/actuator/**").permitAll()
                         .pathMatchers("/product-service/**")
                         .authenticated() // product service istek atmak için sadece authenticated olmak yeterli
 

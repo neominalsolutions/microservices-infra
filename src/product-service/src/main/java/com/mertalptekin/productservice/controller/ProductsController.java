@@ -32,6 +32,11 @@ public class ProductsController {
     @PostMapping("details")
     public ResponseEntity<OrderedProductDetailResponse> productDetailRequest(@RequestBody OrderedProductDetailRequest request){
 
+
+        if(request.ProductIds().length == 2){
+            throw  new RuntimeException("Sunucuda bir hata meydana geldi");
+        }
+
         // kendi veri tabanında requestProductIds göre sorgulanıp çekildi
         List<OrderedProduct> orderedProducts = Arrays.asList(new OrderedProduct("P-1", BigDecimal.valueOf(100.2),10),new OrderedProduct("P-2", BigDecimal.valueOf(100.2),10));
 
