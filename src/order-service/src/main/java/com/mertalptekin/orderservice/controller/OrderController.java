@@ -32,9 +32,9 @@ public class OrderController {
     // api/v1/orders/123/orderDetails
     @GetMapping("{orderCode}/orderDetails")
     public ResponseEntity<OrderedProductDetailResponse> getOrderedProductDetails(String orderCode){
-        String[] productIds = new String[2];
+        String[] productIds = new String[1];
         productIds[0] = UUID.randomUUID().toString();
-        productIds[1] = UUID.randomUUID().toString(); // veri tabanında çekilmiş gibi simüle ettik
+        //productIds[1] = UUID.randomUUID().toString(); // veri tabanında çekilmiş gibi simüle ettik
         log.info("order-service-request");
         return productClient.getOrderedProducts(new OrderedProductDetailRequest(productIds));
     }
