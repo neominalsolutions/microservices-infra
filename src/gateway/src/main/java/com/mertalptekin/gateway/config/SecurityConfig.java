@@ -59,10 +59,10 @@ public class SecurityConfig {
                         .authenticated() // product service istek atmak için sadece authenticated olmak yeterli
 
                         // Order Service routelarına gelecek isteklerde access token lazım ve admin olmak lazım.
-                        .pathMatchers("/order-service/**")
-                        .hasAuthority("microservices-admin")
-                        .anyExchange()
-                        .authenticated()
+                        .pathMatchers("/order-service/**").permitAll()
+//                        .hasAuthority("microservices-admin")
+//                        .anyExchange()
+//                        .authenticated()
                 ).oauth2ResourceServer(oauth2 -> oauth2
                         .jwt(jwt -> jwt.jwtAuthenticationConverter(reactiveJwtAuthenticationConverter()))
                 )
