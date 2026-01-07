@@ -35,6 +35,9 @@ spring:
         makePaymentEvent-out-0:
             destination: saga_order_makePayment
             content-type: application/json
+
+
+        # Replay Channel
         stockReservedEvent-out-0:
           destination: saga_order_stockReserved
           content-type: application/json
@@ -48,17 +51,14 @@ spring:
           destination: saga_order_paidFailed
           content-type: application/json
         completeOrderEvent-out-0:
-            destination: saga_order_completeOrder
-            content-type: application/json
+          destination: saga_order_completeOrder
+          content-type: application/json
         rejectOrderEvent-out-0:
           destination: saga_order_rejectOrder
           content-type: application/json
         releaseStockEvent-out-0:
           destination: saga_order_releaseStock
           content-type: application/json
-
-
-        # Replay Channel
         orderSubmitEvent-in-0:
           destination: saga_order_submitted
           content-type: application/json
